@@ -19,6 +19,9 @@ public class SpringdemoApplication {
 		System.out.println(context.getBean("person", Peron.class));
 		context.registerShutdownHook();
 		//SpringApplication.run(SpringdemoApplication.class, args);
+
+		System.out.println("Hello");
+
 	}
 
 }
