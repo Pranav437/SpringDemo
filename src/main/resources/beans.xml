@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="electricEngine" class="co.pragra.learning.springdemo.model.ElectricEngine">
+    <constructor-arg name="type" value="Electric"/>
+    <constructor-arg name="hp" value="1800.0"/>
+        </bean>
+
+<bean name="gasolineEngine" class="co.pragra.learning.springdemo.model.GasolineEngine">
+<constructor-arg name="type" value="Gasoline"/>
+<constructor-arg name="cc" value="2000.0"/>
+        </bean>
+
+<bean name="car" class="co.pragra.learning.springdemo.model.Car">
+<constructor-arg name="make" value="Honda"/>
+<constructor-arg name="model" value="Civic"/>
+<constructor-arg name="engine" ref="electricEngine"/>
+</bean>
+
+
+    <bean name="person" init-method="doInit" destroy-method="preDestroy" class="co.pragra.learning.springdemo.model.Peron">
+        <property name="name" value="Dave"/>
+        <property name="hobbies">
+            <list>
+                <value>Movies</value>
+                <value>Reading</value>
+                <value>Cooking</value>
+            </list>
+        </property>
+        <property name="courseMap">
+            <map>
+                <entry key="Java" value="FullStack"/>
+                <entry key="C++" value="Object Oriented Language"/>
+            </map>
+        </property>
+        <property name="createDate" ref="createDate"/>
+
+    </bean>
+    <bean name="createDate" class="java.time.Instant" factory-method="now">
+
+    </bean>
+</beans>
