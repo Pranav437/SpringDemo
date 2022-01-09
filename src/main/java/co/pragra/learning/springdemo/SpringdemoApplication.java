@@ -12,7 +12,7 @@ public class SpringdemoApplication {
 
 	public static void main(String[] args) {
 
-
+		//SpringApplication.run(SpringdemoApplication.class, args);
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 		System.out.println(context.getBean("car", Car.class));
